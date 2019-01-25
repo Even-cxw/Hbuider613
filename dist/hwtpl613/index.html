@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.attrTab {
+			position: absolute;
+			height: 100%;
+			width: 200px;
+			line-height: 40px;
+			background-color: rgba(0, 0, 0, 0.6);
+			right: 0px;
+			top: 0px;
+			text-align: center;
+			display: none;
+		}
+
+		.attrTab select {
+			width: 100%;
+			height: 40px;
+		}
+
+		.attrTable,
+		.attrTable th,
+		.attrTable td {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.attrTable th,
+		.attrTable td {
+			height: 40px;
+		}
+
+		.attrTable th {
+			width: 80px;
+			text-align: right;
+		}
+
+		.attrTable td input {
+			border: 0px;
+			height: 30px;
+			width: 100%;
+		}
+		.input {
+			height: 40px;
+			width: 200px;
+			border: 2px rebeccapurple solid;
+			margin-right: 20px;
+		}
+		.button {
+			height: 40px;
+			width: 200px;
+		}
+		.wrapper {
+			padding: 50px 20px 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<input type="text" class="input" id="input">
+		<button class="button" id="button">点我点我</button>
+	</div>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<div id="IndexFilePath" style="display:none;">hwtpl613</div>
+	<script>
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+		let JsonName = GetQueryString('jsonName');
+		let JsonPath = GetQueryString('jsonPath');
+		if (JsonPath) {
+			JsonPath = decodeURI(JsonPath);
+		}
+		let IndexFilePath = $("#IndexFilePath").html();
+		JsonName = JsonName ? JsonName : IndexFilePath;
+		let editor;
+		$(function () {
+			// 这个是点击的事件
+			$('.button').click(function() {
+				let value = document.getElementById('input').value
+				$('.wrapper').remove();
+				var oScript = document.createElement("script");
+				oScript.src = `./${IndexFilePath}.bundle.js`;
+				document.body.appendChild(oScript);
+				oScript.onload = function(){
+					let baseUrl = ''
+					if (value == 000) {
+						baseUrl = "./" + JsonName + ".json";
+					} else {
+						baseUrl = `http://192.168.1.150:81/ValidateCode/getapplicationjson?id=${value}`;
+					}
+					$.ajax({
+							get: "get",
+							url: baseUrl,
+							cache: false
+						}).then(function (allData) {
+							initData(allData, value);
+						})
+						function initData(allData, value) {
+							if (value == 000) {
+								let data = allData
+								var NameArr = IndexFilePath.split('-');
+								var ClassName = "";
+								for (var i = 0; i <= NameArr.length - 1; i++) {
+									var chars = NameArr[i];
+									ClassName += chars[0].toUpperCase() + chars.substring(1);
+								}
+								var evalCode = "editor=new " + ClassName + "(" + data + ");";
+								eval(evalCode);
+							} else {
+								let data = JSON.parse(allData).json;
+								data = JSON.stringify(data);
+								var NameArr = IndexFilePath.split('-');
+								var ClassName = "";
+								for (var i = 0; i <= NameArr.length - 1; i++) {
+									var chars = NameArr[i];
+									ClassName += chars[0].toUpperCase() + chars.substring(1);
+								}
+								var evalCode = "editor=new " + ClassName + "(" + data + ");";
+								eval(evalCode);
+							}
+						}
+				}
+			});
+			document.addEventListener('plusready', function () {
+			}, false);
+		});
+	</script>
+</body>
+
+</html>

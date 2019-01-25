@@ -1,0 +1,47 @@
+{
+  "localImage": {
+    "graphicsBg": {"image": "2be02895a22f0b008b044273e8c09f72"},
+    "graphicsInner": {"image": "640b84f71cedb0a68918f2008f97a0ba"},
+    "graphicsInnerNumber": {"image": "0888f200dbd7c3f6704df35d3ef50998"},
+    "yellowSubmit": {"image": "9e7837127168effca395c4b5888fa345.png"},
+    "greenSubmit": {"image": "f85762e40695dd9514c6ffa5373fccf4.png"},
+    "bg": {"image": "9afe26bb50300c4fb5eb5841d7c02f89.png"},
+    "normalBall": {"image": "56e3f2c5ba9f0b2d82eed5de3927abb5"},
+    "finishBall": {"image": "a2c33cc060a5ca231e066e20504a77b5"},
+    "pressBall": {"image": "32b97a5b523d19e13805571252293c51"},
+    "record": {"image": "fa17b6e43887c334cfa25a1135296181"},
+    "recordPress": {"image": "42176d38ec148b1a9df16dc527853d4f"},
+    "next": {"image": "d044da12cad35e5fa7ad403e22ab3486"},
+    "nextPress": {"image": "28929afa11caecfe9e92d007805e4f52"},
+    "finish": {"image": "5c1abcfd2b8210c699135667344ec994"},
+    "finishPress": {"image": "5240ed92150b6e7d882e106435cf55c2"},
+    "recordingMessage": {"image": "db6c2ef86b0f032b94edfef363f88330"},
+    "recordedMessage": {"image": "872444bc068ba331078813b4919059d2"},
+    "scoreMessage": {"image": "383d6fdd2e7b9bf60300b8a9233d2c5e"},
+    "playAudio": {"image": "3fed2a171beb389bacf472af283f500c"},
+    "playAudioStop": {"image": "640b84f71cedb0a68918f2008f97a0ba"}
+  },
+  "localSound": {
+    "right": {
+      "sound": "ecc48a6930c1ccc8d45ce88882a4a5e9"
+    },
+    "err": {
+      "sound": "4791dd8817b19d7a074de7f4022b7096"
+    },
+    "try_again": {
+      "sound": "79da8e65030f9f83f026e87bd01c8b2d"
+    },
+    "great_job": {
+      "sound": "b1b1e06c0dc5058783f3d43c23526a16"
+    },
+    "doing_great": {
+      "sound": "f49418edd881aa5d8767405c354aed79"
+    },
+    "fantastic": {
+      "sound": "f3e0bc81edc7be813c74bd93a26c2d02"
+    }
+  },
+  "localPosition": {
+
+  }
+}
