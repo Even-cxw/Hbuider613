@@ -4,6 +4,8 @@ class RecorderObj {
     this.init();
   }
 
+  // 初始化录音对象
+
   init() {
     if (window.plus) {
       this.AudioRecorder = window.plus.audio.getRecorder();
