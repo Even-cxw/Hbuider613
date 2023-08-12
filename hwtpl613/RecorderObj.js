@@ -4,7 +4,7 @@ class RecorderObj {
     this.init();
   }
 
-  // 初始化录音对象
+  // 初始化录音对象1
 
   init() {
     if (window.plus) {
